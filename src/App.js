@@ -8,14 +8,26 @@ function App() {
     <Router>
       <div className="App">
         <h2>Client Auth Project</h2>
-
+          <button>
           <Link to='/login'>Login</Link>
-          <br/>
-
+          </button>      
+          
+          <button>
           <Link to="/logout">Logout</Link>
+          </button>
+
+          <button>
+          <Link to="/friendlist">Frienlist</Link>
+          </button>
+
+          <button>
+          <Link to="/addfriend">Addfriend</Link>
+          </button>
+
+
         
         <Switch>
-          <Route path='login' component={Login}/>
+          <Route path='/login' component={Login}/>
         </Switch>
       </div>
     </Router>
