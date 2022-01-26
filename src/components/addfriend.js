@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
 class AddFriend extends React.Component {
 
@@ -21,11 +21,7 @@ class AddFriend extends React.Component {
   
     submit = e => {
       e.preventDefault();
-      axios.post('http://localhost:9000/api/friends', this.state.info,{
-        headers: {
-          authorization: localStorage.getItem('token')
-        }
-      }) 
+      axiosWithAuth().post('http://localhost:9000/api/friends', this.state.info) 
       .then(response =>{
         // localStorage.setItem('token', response.data.token);
         this.props.history.push('/friends');
