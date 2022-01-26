@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
 import Login from './components/login';
+import Friendlist from './components/friendlist';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
           </button>
 
           <button>
-          <Link to="/friendlist">Frienlist</Link>
+          <Link to="/friendlist">Friendlist</Link>
           </button>
 
           <button>
@@ -27,8 +28,9 @@ function App() {
 
         
         <Switch>
-          <Route path='/login' component={Login}/>
           <Route path='/' component={Login}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/friendlist' component={Friendlist}/>
         </Switch>
       </div>
     </Router>
