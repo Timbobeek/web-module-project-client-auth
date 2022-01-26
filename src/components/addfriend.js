@@ -1,39 +1,34 @@
 import React from "react";
 import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { useState } from "react"
 
+class AddFriend extends React.Component {
 
-const AddFriend = (props) => {
-
-    const [ state, setState ] = useState( {
+    state = {
       info: {
         name: '',
         age: ''
       }
-    });
-
-    const history = useHistory();
-    
-    const handleChange = e => {
-      setState({
+    };
+  
+    handleChange = e => {
+      this.setState({
         info: {
-          ...state.info,
+          ...this.state.info,
           [e.target.name]: e.target.value
         }
       });
     };
   
-    const submit = e => {
+    submit = e => {
       e.preventDefault();
-      axios.post('http://localhost:9000/api/friends', state.info,{
+      axios.post('http://localhost:9000/api/friends', this.state.info,{
         headers: {
           authorization: localStorage.getItem('token')
         }
       }) 
       .then(response =>{
         // localStorage.setItem('token', response.data.token);
-        history.push('/friends');
+        this.props.history.push('/friends');
         
       })
       .catch(error => {
@@ -41,28 +36,30 @@ const AddFriend = (props) => {
       })
     };
 
+    render(){
     return (
       <div>
         <h1>Add Friend</h1>
-        <form onSubmit={submit}>
+        <form onSubmit={this.submit}>
           Friend Name:
           <input
             type="text"
             name="name"
-            value={state.info.name}
-            onChange={handleChange}>
+            value={this.state.info.name}
+            onChange={this.handleChange}>
             </input>
           Friend Age:
           <input
             type="text"
             name="age"
-            value={state.info.age}
-            onChange={handleChange}
+            value={this.state.info.age}
+            onChange={this.handleChange}
           />
           <button>Submit</button>
         </form>
       </div>
       )
+    }
   }
 
 
