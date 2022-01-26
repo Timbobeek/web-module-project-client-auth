@@ -14,26 +14,28 @@ class Friendlist extends React.Component{
       }
     })
     .then(res => {
-      console.log(res.data);
-    })
+      console.log(res.data[0].name);
+      this.setState({
+        friends: res.data[0].name
+    });
+  })
     .catch(err =>{
       console.log(err);
     })
   }
+
+
   render(){
     return(
       <div>
         <h1>Friends L1st</h1>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>{this.state.friends}</p>
       </div>
     )
   }
-} 
+}
+
+
 
 
 export default Friendlist;
