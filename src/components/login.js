@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Friendlist from "./friendlist";
-import { ThemeConsumer } from "styled-components";
+
 
   class Login extends React.Component {
     state = {
@@ -22,7 +21,6 @@ import { ThemeConsumer } from "styled-components";
   
     login = e => {
       e.preventDefault();
-      //console.log(this.state.credentials);
       axios.post('http://localhost:9000/api/login/', this.state.credentials) /// 9000 is backend, 3000 is frontend
       .then(response =>{
         
@@ -36,7 +34,6 @@ import { ThemeConsumer } from "styled-components";
     };
 
     render(){
-      // console.log(this.state);
     return (
       <div>
         <h1>Login</h1>
