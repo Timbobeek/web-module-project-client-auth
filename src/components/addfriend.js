@@ -1,8 +1,12 @@
 import React from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { ThemeConsumer } from "styled-components";
 
   class AddFriend extends React.Component {
+
+
+    
     state = {
       info: {
         name: '',
@@ -21,12 +25,15 @@ import { ThemeConsumer } from "styled-components";
   
     submit = e => {
       e.preventDefault();
-      //console.log(this.state.credentials);
-      axios.post('http://localhost:9000/api/login/', this.state.info) /// 9000 is backend, 3000 is frontend
+      axios.post('http://localhost:9000/api/friends', this.state.info,{
+        headers: {
+          authorization: localStorage.getItem('token')
+        }
+      }) 
       .then(response =>{
-        console.log(response.data.token)
-        // localStorage.setItem('token', response.data.token);
-        this.props.history.push('/friends')
+        // console.log(response.data)
+        this.props.history.push('/friends');
+        // this.props.history.push('/friends')
 
       })
       .catch(error => {

@@ -25,7 +25,7 @@ import { ThemeConsumer } from "styled-components";
       //console.log(this.state.credentials);
       axios.post('http://localhost:9000/api/login/', this.state.credentials) /// 9000 is backend, 3000 is frontend
       .then(response =>{
-        console.log(response.data.token)
+        
         localStorage.setItem('token', response.data.token);
         this.props.history.push('/friends')
 

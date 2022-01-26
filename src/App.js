@@ -23,13 +23,13 @@ function App() {
           </button>
 
           <button>
-          <Link to="/addfriend">Addfriend</Link>
+          <Link to="/friends/add">Addfriend</Link>
           </button>
 
 
         
         <Switch>
-          <Route path = '/addfriend' component={AddFriend}/>
+          <Route path = '/friends/add' component={AddFriend}/>
           <Route path='/login' component={Login}/>
           <Route exact path='/friends' component={Friendlist}/>
           <Route path='/' component={Login}/>
