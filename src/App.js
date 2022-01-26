@@ -8,7 +8,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h2>Client Auth Project</h2>
+        <h2>Friend$ D@t@b@5e</h2>
           <button>
           <Link to='/login'>Login</Link>
           </button>      
@@ -18,7 +18,7 @@ function App() {
           </button>
 
           <button>
-          <Link to="/friendlist">Friendlist</Link>
+          <Link to="/friends">Friendlist</Link>
           </button>
 
           <button>
@@ -28,9 +28,9 @@ function App() {
 
         
         <Switch>
-          <Route path='/' component={Login}/>
           <Route path='/login' component={Login}/>
-          <Route path='/friendlist' component={Friendlist}/>
+          <Route exact path='/friends' component={Friendlist}/>
+          <Route path='/' component={Login}/>
         </Switch>
       </div>
     </Router>

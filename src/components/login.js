@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Friendlist from "./friendlist";
 import { ThemeConsumer } from "styled-components";
 
   class Login extends React.Component {
@@ -26,7 +27,7 @@ import { ThemeConsumer } from "styled-components";
       .then(response =>{
         console.log(response.data.token)
         localStorage.setItem('token', response.data.token);
-        this.props.history.push('/friendlist')
+        this.props.history.push('/friends')
 
       })
       .catch(error => {
